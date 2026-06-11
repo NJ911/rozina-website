@@ -57,7 +57,7 @@ export default function About() {
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+            transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
             style={{ position: "relative", height: "560px" }}
           >
             {/* Main large image — waiting area */}
@@ -84,7 +84,7 @@ export default function About() {
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.5, delay: 0.15, ease: [0.4, 0, 0.2, 1] }}
+              transition={{ duration: 0.8, delay: 0.25, ease: [0.33, 1, 0.68, 1] }}
               style={{
                 position: "absolute",
                 bottom: 0,
@@ -108,7 +108,7 @@ export default function About() {
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.4, delay: 0.25, ease: [0.4, 0, 0.2, 1] }}
+              transition={{ duration: 0.7, delay: 0.45, ease: [0.33, 1, 0.68, 1] }}
               style={{
                 position: "absolute",
                 top: "60%",
@@ -153,7 +153,7 @@ export default function About() {
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.1, ease: [0.4, 0, 0.2, 1] }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.33, 1, 0.68, 1] }}
           >
             <span className="text-label">Our Story</span>
             <div className="section-divider" style={{ margin: "1rem 0" }} />
@@ -192,7 +192,7 @@ export default function About() {
                   key={stat.label}
                   initial={{ opacity: 0, y: 16 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.35, delay: 0.2 + i * 0.05, ease: [0.4, 0, 0.2, 1] }}
+                  transition={{ duration: 0.6, delay: 0.4 + i * 0.1, ease: [0.33, 1, 0.68, 1] }}
                   style={{
                     padding: "1.1rem",
                     borderRadius: "1rem",

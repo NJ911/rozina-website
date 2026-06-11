@@ -53,7 +53,7 @@ function ServiceCard({
       ref={ref}
       initial={{ opacity: 0, y: 36 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.4, delay: index * 0.05, ease: [0.4, 0, 0.2, 1] }}
+      transition={{ duration: 0.7, delay: index * 0.1, ease: [0.33, 1, 0.68, 1] }}
       whileHover={{ y: -6 }}
       style={{
         position: "relative",
@@ -169,7 +169,7 @@ export default function Services() {
           ref={headingRef}
           initial={{ opacity: 0, y: 24 }}
           animate={headingInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+          transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
           style={{ textAlign: "center", marginBottom: "3.5rem" }}
         >
           <span className="text-label">What We Offer</span>
@@ -199,7 +199,7 @@ export default function Services() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={headingInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.4, delay: 0.2, ease: [0.4, 0, 0.2, 1] }}
+          transition={{ duration: 0.7, delay: 0.4, ease: [0.33, 1, 0.68, 1] }}
           style={{ textAlign: "center", marginTop: "3rem" }}
         >
           <p

@@ -59,7 +59,7 @@ export default function Gallery() {
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+          transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
           style={{ textAlign: "center", marginBottom: "2.5rem" }}
         >
           <span className="text-label">Our Space &amp; Work</span>
@@ -76,7 +76,7 @@ export default function Gallery() {
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.35, delay: 0.1, ease: [0.4, 0, 0.2, 1] }}
+          transition={{ duration: 0.7, delay: 0.2, ease: [0.33, 1, 0.68, 1] }}
           style={{
             display: "flex",
             justifyContent: "center",
@@ -130,7 +130,7 @@ export default function Gallery() {
                 initial={{ opacity: 0, scale: 0.88 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.88 }}
-                transition={{ duration: 0.25, delay: i * 0.03, ease: [0.4, 0, 0.2, 1] }}
+                transition={{ duration: 0.6, delay: i * 0.08, ease: [0.33, 1, 0.68, 1] }}
                 onClick={() => setSelectedImage(img.src)}
                 whileHover={{ scale: 1.02 }}
                 style={{

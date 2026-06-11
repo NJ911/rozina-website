@@ -71,7 +71,7 @@ export default function Testimonials() {
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+          transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
           style={{ textAlign: "center", marginBottom: "3rem" }}
         >
           <span className="text-label">Client Love</span>
@@ -91,7 +91,7 @@ export default function Testimonials() {
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.4, delay: 0.1, ease: [0.4, 0, 0.2, 1] }}
+          transition={{ duration: 0.8, delay: 0.25, ease: [0.33, 1, 0.68, 1] }}
           style={{ position: "relative" }}
         >
           <div
