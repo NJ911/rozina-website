@@ -48,6 +48,7 @@ export default function Navbar() {
     <>
       {/* Top Info Bar */}
       <motion.div
+        className="top-info-bar"
         initial={{ y: -40 }}
         animate={{ y: isScrolled ? -40 : 0 }}
         transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
@@ -65,11 +66,10 @@ export default function Navbar() {
         }}
       >
         <div
-          className="top-bar-inner"
           style={{
             maxWidth: "1200px",
             margin: "0 auto",
-            padding: "0 1.25rem",
+            padding: "0 2rem",
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
@@ -112,6 +112,7 @@ export default function Navbar() {
 
       {/* Main Navbar */}
       <nav
+        className="main-navbar"
         style={{
           position: "fixed",
           top: isScrolled ? 0 : 34,

@@ -87,14 +87,12 @@ export default function Hero() {
 
       {/* Hero Content */}
       <div
-        className="hero-content"
         style={{
           position: "relative",
           zIndex: 2,
           textAlign: "center",
           maxWidth: "820px",
           padding: "0 1.5rem",
-          width: "100%",
         }}
       >
         {/* Eye-brow label */}
@@ -191,7 +189,6 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.7, ease: [0.4, 0, 0.2, 1] }}
-          className="btn-stack-mobile"
           style={{
             display: "flex",
             gap: "1rem",
