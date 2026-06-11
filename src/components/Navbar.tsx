@@ -22,9 +22,8 @@ export default function Navbar() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
 
-      // Track active section
       const sections = navLinks.map((l) => l.href.replace("#", ""));
-      for (const section of sections.reverse()) {
+      for (const section of [...sections].reverse()) {
         const el = document.getElementById(section);
         if (el) {
           const rect = el.getBoundingClientRect();
@@ -35,16 +34,14 @@ export default function Navbar() {
         }
       }
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const handleNavClick = (href: string) => {
     setIsMobileOpen(false);
     const el = document.querySelector(href);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    }
+    if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -53,7 +50,7 @@ export default function Navbar() {
       <motion.div
         initial={{ y: -40 }}
         animate={{ y: isScrolled ? -40 : 0 }}
-        transition={{ duration: 0.3 }}
+        transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
         style={{
           position: "fixed",
           top: 0,
@@ -61,9 +58,10 @@ export default function Navbar() {
           right: 0,
           zIndex: 1001,
           background: "var(--color-charcoal)",
-          color: "rgba(255,255,255,0.8)",
-          fontSize: "0.8rem",
-          padding: "0.5rem 0",
+          color: "rgba(235, 237, 235, 0.75)",
+          fontSize: "0.78rem",
+          padding: "0.45rem 0",
+          willChange: "transform",
         }}
       >
         <div
@@ -78,10 +76,8 @@ export default function Navbar() {
             gap: "0.5rem",
           }}
         >
-          <div
-            style={{ display: "flex", alignItems: "center", gap: "0.4rem" }}
-          >
-            <MapPin size={13} />
+          <div style={{ display: "flex", alignItems: "center", gap: "0.4rem" }}>
+            <MapPin size={12} color="var(--color-primary-300)" />
             <span>113-11020 No. 5 Road, Richmond, BC</span>
           </div>
           <div style={{ display: "flex", gap: "1.5rem", alignItems: "center" }}>
@@ -91,12 +87,11 @@ export default function Navbar() {
                 display: "flex",
                 alignItems: "center",
                 gap: "0.4rem",
-                color: "var(--color-primary-300)",
+                color: "var(--color-primary-200)",
                 textDecoration: "none",
-                transition: "color 0.3s",
               }}
             >
-              <Phone size={13} /> 236-235-2284
+              <Phone size={12} /> 236-235-2284
             </a>
             <a
               href="tel:778-668-4649"
@@ -104,39 +99,35 @@ export default function Navbar() {
                 display: "flex",
                 alignItems: "center",
                 gap: "0.4rem",
-                color: "var(--color-primary-300)",
+                color: "var(--color-primary-200)",
                 textDecoration: "none",
-                transition: "color 0.3s",
               }}
             >
-              <Phone size={13} /> 778-668-4649
+              <Phone size={12} /> 778-668-4649
             </a>
           </div>
         </div>
       </motion.div>
 
       {/* Main Navbar */}
-      <motion.nav
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+      <nav
         style={{
           position: "fixed",
-          top: isScrolled ? 0 : 36,
+          top: isScrolled ? 0 : 34,
           left: 0,
           right: 0,
           zIndex: 1000,
-          transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+          transition: "top 0.35s cubic-bezier(0.4,0,0.2,1), background 0.35s cubic-bezier(0.4,0,0.2,1), box-shadow 0.35s cubic-bezier(0.4,0,0.2,1)",
           background: isScrolled
-            ? "rgba(254, 253, 251, 0.92)"
+            ? "rgba(250, 251, 249, 0.94)"
             : "transparent",
-          backdropFilter: isScrolled ? "blur(20px)" : "none",
-          WebkitBackdropFilter: isScrolled ? "blur(20px)" : "none",
+          backdropFilter: isScrolled ? "blur(18px)" : "none",
+          WebkitBackdropFilter: isScrolled ? "blur(18px)" : "none",
           borderBottom: isScrolled
-            ? "1px solid rgba(183, 110, 121, 0.1)"
+            ? "1px solid rgba(129, 171, 143, 0.15)"
             : "none",
           boxShadow: isScrolled
-            ? "0 4px 30px rgba(0,0,0,0.05)"
+            ? "0 4px 24px rgba(44,57,48,0.06)"
             : "none",
         }}
       >
@@ -144,39 +135,35 @@ export default function Navbar() {
           style={{
             maxWidth: "1200px",
             margin: "0 auto",
-            padding: "1rem 2rem",
+            padding: "0.9rem 2rem",
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
           }}
         >
           {/* Logo */}
-          <motion.a
+          <a
             href="#home"
             onClick={(e) => {
               e.preventDefault();
               handleNavClick("#home");
             }}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
             style={{
               textDecoration: "none",
               display: "flex",
               flexDirection: "column",
-              gap: "0",
+              gap: 0,
             }}
           >
             <span
               style={{
                 fontFamily: "var(--font-heading)",
-                fontSize: "1.75rem",
+                fontSize: "1.7rem",
                 fontWeight: 400,
-                color: isScrolled
-                  ? "var(--color-charcoal)"
-                  : "white",
+                color: isScrolled ? "var(--color-charcoal)" : "white",
                 letterSpacing: "0.02em",
                 lineHeight: 1,
-                transition: "color 0.4s",
+                transition: "color 0.35s",
               }}
             >
               Rozina&apos;s
@@ -184,103 +171,90 @@ export default function Navbar() {
             <span
               style={{
                 fontFamily: "var(--font-body)",
-                fontSize: "0.6rem",
+                fontSize: "0.58rem",
                 fontWeight: 500,
-                letterSpacing: "0.25em",
+                letterSpacing: "0.24em",
                 textTransform: "uppercase",
-                color: isScrolled
-                  ? "var(--color-primary)"
-                  : "var(--color-primary-300)",
-                transition: "color 0.4s",
+                color: isScrolled ? "var(--color-primary)" : "rgba(189,213,198,0.9)",
+                transition: "color 0.35s",
               }}
             >
               Beauty Services
             </span>
-          </motion.a>
+          </a>
 
-          {/* Desktop Nav Links */}
+          {/* Desktop Nav */}
           <div
-            style={{
-              display: "flex",
-              gap: "2rem",
-              alignItems: "center",
-            }}
             className="desktop-nav"
+            style={{ display: "flex", gap: "1.75rem", alignItems: "center" }}
           >
-            {navLinks.map((link) => (
-              <motion.a
-                key={link.name}
-                href={link.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavClick(link.href);
-                }}
-                whileHover={{ y: -2 }}
-                style={{
-                  textDecoration: "none",
-                  fontSize: "0.85rem",
-                  fontWeight: activeSection === link.href.replace("#", "") ? 500 : 400,
-                  letterSpacing: "0.04em",
-                  color:
-                    activeSection === link.href.replace("#", "")
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.href.replace("#", "");
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavClick(link.href);
+                  }}
+                  style={{
+                    textDecoration: "none",
+                    fontSize: "0.84rem",
+                    fontWeight: isActive ? 500 : 400,
+                    letterSpacing: "0.04em",
+                    color: isActive
                       ? isScrolled
-                        ? "var(--color-primary)"
+                        ? "var(--color-primary-dark)"
                         : "white"
                       : isScrolled
                       ? "var(--color-warm-gray)"
-                      : "rgba(255,255,255,0.8)",
-                  transition: "all 0.3s",
-                  position: "relative",
-                }}
-              >
-                {link.name}
-                {activeSection === link.href.replace("#", "") && (
-                  <motion.div
-                    layoutId="activeNav"
-                    style={{
-                      position: "absolute",
-                      bottom: -6,
-                      left: 0,
-                      right: 0,
-                      height: 2,
-                      background: isScrolled
-                        ? "var(--color-primary)"
-                        : "white",
-                      borderRadius: 1,
-                    }}
-                    transition={{ duration: 0.3 }}
-                  />
-                )}
-              </motion.a>
-            ))}
+                      : "rgba(235,237,235,0.82)",
+                    transition: "color 0.3s",
+                    position: "relative",
+                    paddingBottom: "4px",
+                  }}
+                >
+                  {link.name}
+                  {isActive && (
+                    <motion.div
+                      layoutId="activeNav"
+                      style={{
+                        position: "absolute",
+                        bottom: 0,
+                        left: 0,
+                        right: 0,
+                        height: 1.5,
+                        background: isScrolled
+                          ? "var(--color-primary)"
+                          : "rgba(189,213,198,0.9)",
+                        borderRadius: 1,
+                      }}
+                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                    />
+                  )}
+                </a>
+              );
+            })}
             <motion.a
-              href="tel:236-235-2284"
+              href="https://book.squareup.com/appointments/n7xxysv9bnct70/location/L65JXKYPCZCN5/services"
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-primary"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              style={{
-                padding: "0.65rem 1.5rem",
-                fontSize: "0.78rem",
-                textDecoration: "none",
-              }}
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.97 }}
+              style={{ padding: "0.62rem 1.4rem", fontSize: "0.76rem", textDecoration: "none" }}
             >
-              <span
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "0.4rem",
-                }}
-              >
-                <Phone size={14} /> Book Now
+              <span style={{ display: "flex", alignItems: "center", gap: "0.4rem" }}>
+                Book Now
               </span>
             </motion.a>
           </div>
 
-          {/* Mobile Menu Toggle */}
-          <motion.button
+          {/* Mobile Toggle */}
+          <button
             className="mobile-toggle"
             onClick={() => setIsMobileOpen(!isMobileOpen)}
-            whileTap={{ scale: 0.9 }}
             style={{
               display: "none",
               background: "none",
@@ -288,27 +262,31 @@ export default function Navbar() {
               cursor: "pointer",
               color: isScrolled ? "var(--color-charcoal)" : "white",
               padding: "0.5rem",
+              alignItems: "center",
+              justifyContent: "center",
             }}
+            aria-label="Toggle navigation menu"
           >
             {isMobileOpen ? <X size={24} /> : <Menu size={24} />}
-          </motion.button>
+          </button>
         </div>
-      </motion.nav>
+      </nav>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileOpen && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.25 }}
             style={{
               position: "fixed",
               inset: 0,
               zIndex: 999,
-              background: "rgba(26, 17, 20, 0.95)",
-              backdropFilter: "blur(20px)",
+              background: "rgba(26, 32, 25, 0.97)",
+              backdropFilter: "blur(24px)",
+              WebkitBackdropFilter: "blur(24px)",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
@@ -324,20 +302,20 @@ export default function Navbar() {
                   e.preventDefault();
                   handleNavClick(link.href);
                 }}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 10 }}
-                transition={{ delay: i * 0.05, duration: 0.3 }}
+                exit={{ opacity: 0 }}
+                transition={{ delay: i * 0.04, duration: 0.28, ease: [0.4, 0, 0.2, 1] }}
                 style={{
                   textDecoration: "none",
                   fontFamily: "var(--font-heading)",
-                  fontSize: "2rem",
+                  fontSize: "2.2rem",
                   fontWeight: 300,
                   color:
                     activeSection === link.href.replace("#", "")
-                      ? "var(--color-primary-300)"
-                      : "rgba(255,255,255,0.8)",
-                  transition: "color 0.3s",
+                      ? "var(--color-primary-200)"
+                      : "rgba(235,237,235,0.85)",
+                  letterSpacing: "0.01em",
                 }}
               >
                 {link.name}
@@ -345,39 +323,19 @@ export default function Navbar() {
             ))}
             <motion.a
               href="tel:236-235-2284"
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.3 }}
+              transition={{ delay: 0.32, duration: 0.28 }}
               className="btn-primary"
-              style={{
-                marginTop: "1rem",
-                textDecoration: "none",
-              }}
+              style={{ marginTop: "1rem", textDecoration: "none" }}
             >
-              <span
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "0.5rem",
-                }}
-              >
+              <span style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
                 <Phone size={16} /> Call to Book
               </span>
             </motion.a>
           </motion.div>
         )}
       </AnimatePresence>
-
-      <style jsx global>{`
-        @media (max-width: 768px) {
-          .desktop-nav {
-            display: none !important;
-          }
-          .mobile-toggle {
-            display: block !important;
-          }
-        }
-      `}</style>
     </>
   );
 }

@@ -3,65 +3,38 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
 
 const services = [
   {
-    title: "Beauty Services",
-    description:
-      "Complete beauty treatments including skincare, lash extensions, and personalized beauty routines tailored to enhance your natural glow.",
-    image: "/facial-treatment.png",
-    features: ["Facials", "Lash Extensions", "Skincare"],
-  },
-  {
-    title: "Makeup Services",
-    description:
-      "Professional makeup artistry for every occasion — from natural everyday looks to glamorous evening transformations.",
-    image: "/makeup-service.png",
-    features: ["Event Makeup", "Party Looks", "Everyday Glam"],
+    title: "Hair Styling",
+    description: "Cuts, colour, blowouts & treatments tailored to you.",
+    image: "/hair-styling.png",
   },
   {
     title: "Bridal Services",
-    description:
-      "Exquisite Western and Eastern bridal packages. We create timeless looks for your most unforgettable day.",
+    description: "Western & Eastern bridal packages for your special day.",
     image: "/bridal-service.png",
-    features: ["Western Bridal", "Eastern Bridal", "Mehndi & Sangeet"],
     featured: true,
   },
   {
-    title: "Laser Hair Removal",
-    description:
-      "Advanced laser technology for safe, effective, and long-lasting hair removal treatments for all skin types.",
+    title: "Makeup",
+    description: "Event, party & everyday glam from natural to bold.",
+    image: "/makeup-service.png",
+  },
+  {
+    title: "Facials & Skincare",
+    description: "OxyGeneo, rejuvenating facials & advanced skincare.",
+    image: "/facial-treatment.png",
+  },
+  {
+    title: "Laser Treatments",
+    description: "Laser hair removal & skin rejuvenation for all skin types.",
     image: "/laser-treatment.png",
-    features: ["Full Body", "Face & Neck", "All Skin Types"],
-  },
-  {
-    title: "Skin Rejuvenation",
-    description:
-      "Advanced laser skin rejuvenation treatments to restore your skin's youthful radiance, reduce fine lines, and improve texture.",
-    image: "/facial-treatment.png",
-    features: ["Anti-Aging", "Pigmentation", "Texture Repair"],
-  },
-  {
-    title: "OxyGeneo Facial",
-    description:
-      "The revolutionary 3-in-1 super facial that exfoliates, infuses, and oxygenates your skin for an instant, luminous glow.",
-    image: "/facial-treatment.png",
-    features: ["Exfoliate", "Infuse", "Oxygenate"],
-  },
-  {
-    title: "Hair Styling",
-    description:
-      "Expert cuts, coloring, styling, and treatments. From sleek blowouts to complete transformations, we bring your hair goals to life.",
-    image: "/hair-styling.png",
-    features: ["Cuts & Color", "Styling", "Treatments"],
   },
   {
     title: "Waxing & Threading",
-    description:
-      "Precision hair removal with gentle techniques. Expert threading and full-body waxing for silky smooth results.",
+    description: "Precision brow shaping, threading & full-body waxing.",
     image: "/waxing-threading.png",
-    features: ["Eyebrow Shaping", "Full Body Wax", "Threading"],
   },
 ];
 
@@ -73,34 +46,32 @@ function ServiceCard({
   index: number;
 }) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 50 }}
+      initial={{ opacity: 0, y: 36 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
+      transition={{ duration: 0.55, delay: index * 0.08, ease: [0.4, 0, 0.2, 1] }}
+      whileHover={{ y: -6 }}
       style={{
         position: "relative",
-        borderRadius: "1.25rem",
+        borderRadius: "1.1rem",
         overflow: "hidden",
-        background: "white",
-        boxShadow: "0 4px 24px rgba(0,0,0,0.04)",
+        background: "var(--color-pearl)",
         border: service.featured
-          ? "2px solid var(--color-primary-300)"
-          : "1px solid rgba(0,0,0,0.04)",
-        transition: "all 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
-        cursor: "pointer",
-        height: "100%",
+          ? "2px solid var(--color-primary)"
+          : "1px solid rgba(129,171,143,0.18)",
+        boxShadow: "0 2px 16px rgba(44,57,48,0.04)",
+        transition: "box-shadow 0.4s ease, border-color 0.3s ease",
+        cursor: "default",
         display: "flex",
         flexDirection: "column",
-      }}
-      whileHover={{
-        y: -8,
-        boxShadow: "0 20px 60px rgba(183, 110, 121, 0.12)",
+        willChange: "transform",
       }}
     >
+      {/* Most Popular badge */}
       {service.featured && (
         <div
           style={{
@@ -108,13 +79,12 @@ function ServiceCard({
             top: "1rem",
             right: "1rem",
             zIndex: 3,
-            padding: "0.35rem 1rem",
-            background:
-              "linear-gradient(135deg, var(--color-primary), var(--color-primary-dark))",
-            color: "white",
-            fontSize: "0.7rem",
+            padding: "0.3rem 0.9rem",
+            background: "linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%)",
+            color: "var(--color-cream)",
+            fontSize: "0.68rem",
             fontWeight: 600,
-            letterSpacing: "0.1em",
+            letterSpacing: "0.12em",
             textTransform: "uppercase",
             borderRadius: "100px",
           }}
@@ -122,11 +92,13 @@ function ServiceCard({
           Most Popular
         </div>
       )}
+
+      {/* Image */}
       <div
         style={{
           position: "relative",
           width: "100%",
-          height: "220px",
+          height: "200px",
           overflow: "hidden",
         }}
       >
@@ -134,23 +106,21 @@ function ServiceCard({
           src={service.image}
           alt={service.title}
           fill
-          style={{
-            objectFit: "cover",
-            transition: "transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)",
-          }}
+          style={{ objectFit: "cover", transition: "transform 0.6s ease" }}
         />
         <div
           style={{
             position: "absolute",
             inset: 0,
-            background:
-              "linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.3) 100%)",
+            background: "linear-gradient(180deg, transparent 55%, rgba(44,57,48,0.22) 100%)",
           }}
         />
       </div>
+
+      {/* Text content */}
       <div
         style={{
-          padding: "1.75rem",
+          padding: "1.4rem 1.6rem 1.6rem",
           display: "flex",
           flexDirection: "column",
           flex: 1,
@@ -159,66 +129,23 @@ function ServiceCard({
         <h3
           style={{
             fontFamily: "var(--font-heading)",
-            fontSize: "1.5rem",
+            fontSize: "1.4rem",
             fontWeight: 500,
             color: "var(--color-charcoal)",
-            marginBottom: "0.75rem",
+            marginBottom: "0.55rem",
           }}
         >
           {service.title}
         </h3>
         <p
           style={{
-            fontSize: "0.9rem",
+            fontSize: "0.88rem",
             color: "var(--color-warm-gray)",
-            lineHeight: 1.7,
-            marginBottom: "1.25rem",
-            flex: 1,
+            lineHeight: 1.65,
           }}
         >
           {service.description}
         </p>
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            gap: "0.5rem",
-            marginBottom: "1.25rem",
-          }}
-        >
-          {service.features.map((feature) => (
-            <span
-              key={feature}
-              style={{
-                padding: "0.3rem 0.75rem",
-                background: "var(--color-primary-50)",
-                color: "var(--color-primary-600)",
-                fontSize: "0.75rem",
-                fontWeight: 500,
-                borderRadius: "100px",
-                border: "1px solid var(--color-primary-100)",
-              }}
-            >
-              {feature}
-            </span>
-          ))}
-        </div>
-        <motion.a
-          href="tel:236-235-2284"
-          whileHover={{ x: 4 }}
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "0.5rem",
-            color: "var(--color-primary)",
-            fontSize: "0.85rem",
-            fontWeight: 500,
-            textDecoration: "none",
-            marginTop: "auto",
-          }}
-        >
-          Book Now <ArrowRight size={16} />
-        </motion.a>
       </div>
     </motion.div>
   );
@@ -226,76 +153,77 @@ function ServiceCard({
 
 export default function Services() {
   const headingRef = useRef(null);
-  const headingInView = useInView(headingRef, { once: true, margin: "-100px" });
+  const headingInView = useInView(headingRef, { once: true, margin: "-80px" });
 
   return (
     <section
       id="services"
       className="marble-bg"
-      style={{
-        padding: "var(--section-padding) 0",
-        overflow: "hidden",
-      }}
+      style={{ padding: "var(--section-padding) 0", overflow: "hidden" }}
     >
-      {/* Background decorative */}
       <div
-        style={{
-          position: "absolute",
-          top: "10%",
-          right: "-5%",
-          width: "400px",
-          height: "400px",
-          borderRadius: "50%",
-          background:
-            "radial-gradient(circle, rgba(183,110,121,0.05), transparent 70%)",
-          pointerEvents: "none",
-        }}
-      />
-
-      <div
-        style={{
-          maxWidth: "1200px",
-          margin: "0 auto",
-          padding: "0 2rem",
-        }}
+        style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 1.5rem" }}
       >
-        {/* Section Header */}
+        {/* Header */}
         <motion.div
           ref={headingRef}
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           animate={headingInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          style={{ textAlign: "center", marginBottom: "4rem" }}
+          transition={{ duration: 0.55, ease: [0.4, 0, 0.2, 1] }}
+          style={{ textAlign: "center", marginBottom: "3.5rem" }}
         >
           <span className="text-label">What We Offer</span>
           <div className="section-divider" />
           <h2
             className="heading-lg"
-            style={{ marginTop: "0.75rem", marginBottom: "1rem" }}
+            style={{ marginTop: "0.75rem", marginBottom: "0.9rem" }}
           >
-            Our Signature Services
+            Our Services
           </h2>
           <p
             className="text-body"
-            style={{ maxWidth: "600px", margin: "0 auto" }}
+            style={{ maxWidth: "520px", margin: "0 auto" }}
           >
-            Indulge in our comprehensive range of beauty treatments, each
-            meticulously crafted to bring out your natural radiance.
+            Brief, beautiful treatments — and if you&apos;d like to know more, simply reach out.
           </p>
         </motion.div>
 
-        {/* Services Grid */}
+        {/* Grid */}
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
-            gap: "1.5rem",
+            gridTemplateColumns: "repeat(auto-fill, minmax(270px, 1fr))",
+            gap: "1.4rem",
           }}
         >
           {services.map((service, index) => (
             <ServiceCard key={service.title} service={service} index={index} />
           ))}
         </div>
+
+        {/* CTA below grid */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={headingInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.55, delay: 0.5, ease: [0.4, 0, 0.2, 1] }}
+          style={{ textAlign: "center", marginTop: "3rem" }}
+        >
+          <p
+            className="text-body"
+            style={{ marginBottom: "1.2rem", fontSize: "0.92rem" }}
+          >
+            Want to know more about a specific service? We&apos;d love to hear from you.
+          </p>
+          <motion.a
+            href="tel:236-235-2284"
+            className="btn-primary"
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.97 }}
+            style={{ textDecoration: "none" }}
+          >
+            <span>Get in Touch</span>
+          </motion.a>
+        </motion.div>
       </div>
     </section>
   );
