@@ -3,6 +3,7 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Award, Heart, Clock, Users } from "lucide-react";
+import Image from "next/image";
 
 const stats = [
   { icon: <Users size={26} />, value: "5,000+", label: "Happy Clients" },
@@ -73,10 +74,12 @@ export default function About() {
                 boxShadow: "0 16px 50px rgba(44,57,48,0.12)",
               }}
             >
-              <img
+              <Image
                 src="/IMG_8475.jpeg"
                 alt="Rozina's Beauty salon waiting area with marble cabinets"
-                style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}
+                fill
+                style={{ objectFit: "cover", objectPosition: "center" }}
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
 
@@ -97,10 +100,12 @@ export default function About() {
                 border: "4px solid var(--color-warm-white)",
               }}
             >
-              <img
+              <Image
                 src="/IMG_8477.jpeg"
                 alt="Rozina's Beauty hair styling area"
-                style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }}
+                fill
+                style={{ objectFit: "cover", objectPosition: "center top" }}
+                sizes="(max-width: 768px) 100vw, 30vw"
               />
             </motion.div>
 
