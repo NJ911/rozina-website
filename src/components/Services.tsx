@@ -46,14 +46,14 @@ function ServiceCard({
   index: number;
 }) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
+  const isInView = useInView(ref, { once: true, margin: "-10px" });
 
   return (
     <motion.div
       ref={ref}
       initial={{ opacity: 0, y: 36 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.55, delay: index * 0.08, ease: [0.4, 0, 0.2, 1] }}
+      transition={{ duration: 0.4, delay: index * 0.05, ease: [0.4, 0, 0.2, 1] }}
       whileHover={{ y: -6 }}
       style={{
         position: "relative",
@@ -153,7 +153,7 @@ function ServiceCard({
 
 export default function Services() {
   const headingRef = useRef(null);
-  const headingInView = useInView(headingRef, { once: true, margin: "-80px" });
+  const headingInView = useInView(headingRef, { once: true, margin: "-10px" });
 
   return (
     <section
@@ -169,7 +169,7 @@ export default function Services() {
           ref={headingRef}
           initial={{ opacity: 0, y: 24 }}
           animate={headingInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.55, ease: [0.4, 0, 0.2, 1] }}
+          transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
           style={{ textAlign: "center", marginBottom: "3.5rem" }}
         >
           <span className="text-label">What We Offer</span>
@@ -199,7 +199,7 @@ export default function Services() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={headingInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.55, delay: 0.5, ease: [0.4, 0, 0.2, 1] }}
+          transition={{ duration: 0.4, delay: 0.2, ease: [0.4, 0, 0.2, 1] }}
           style={{ textAlign: "center", marginTop: "3rem" }}
         >
           <p

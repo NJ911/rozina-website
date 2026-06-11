@@ -34,7 +34,7 @@ const testimonials = [
 
 export default function Testimonials() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
+  const isInView = useInView(ref, { once: true, margin: "-10px" });
   const [current, setCurrent] = useState(0);
 
   const next = () => setCurrent((c) => (c + 1) % testimonials.length);
@@ -71,7 +71,7 @@ export default function Testimonials() {
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.55, ease: [0.4, 0, 0.2, 1] }}
+          transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
           style={{ textAlign: "center", marginBottom: "3rem" }}
         >
           <span className="text-label">Client Love</span>
@@ -91,7 +91,7 @@ export default function Testimonials() {
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.55, delay: 0.18, ease: [0.4, 0, 0.2, 1] }}
+          transition={{ duration: 0.4, delay: 0.1, ease: [0.4, 0, 0.2, 1] }}
           style={{ position: "relative" }}
         >
           <div

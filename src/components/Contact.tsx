@@ -6,7 +6,7 @@ import { Phone, MapPin, Clock, Mail, ExternalLink } from "lucide-react";
 
 export default function Contact() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
+  const isInView = useInView(ref, { once: true, margin: "-10px" });
 
   const contactItems = [
     {
@@ -77,7 +77,7 @@ export default function Contact() {
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.55, ease: [0.4, 0, 0.2, 1] }}
+          transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
           style={{ textAlign: "center", marginBottom: "3.5rem" }}
         >
           <span className="text-label">Get in Touch</span>
@@ -119,7 +119,7 @@ export default function Contact() {
           <motion.div
             initial={{ opacity: 0, x: -24 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.15, ease: [0.4, 0, 0.2, 1] }}
+            transition={{ duration: 0.45, delay: 0.1, ease: [0.4, 0, 0.2, 1] }}
             style={{ display: "flex", flexDirection: "column", gap: "1rem" }}
           >
             {contactItems.map((item, i) => (
@@ -127,7 +127,7 @@ export default function Contact() {
                 key={item.title}
                 initial={{ opacity: 0, y: 16 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.45, delay: 0.25 + i * 0.08, ease: [0.4, 0, 0.2, 1] }}
+                transition={{ duration: 0.35, delay: 0.15 + i * 0.05, ease: [0.4, 0, 0.2, 1] }}
                 whileHover={{ x: 4 }}
                 onClick={() => {
                   if (item.href) window.location.href = item.href;
@@ -193,7 +193,7 @@ export default function Contact() {
               rel="noopener noreferrer"
               initial={{ opacity: 0, y: 16 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.45, delay: 0.65, ease: [0.4, 0, 0.2, 1] }}
+              transition={{ duration: 0.35, delay: 0.35, ease: [0.4, 0, 0.2, 1] }}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               className="btn-primary"
@@ -209,7 +209,7 @@ export default function Contact() {
           <motion.div
             initial={{ opacity: 0, x: 24 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.25, ease: [0.4, 0, 0.2, 1] }}
+            transition={{ duration: 0.45, delay: 0.15, ease: [0.4, 0, 0.2, 1] }}
             style={{
               borderRadius: "1.1rem",
               overflow: "hidden",

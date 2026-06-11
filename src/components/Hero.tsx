@@ -99,7 +99,7 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2, ease: [0.4, 0, 0.2, 1] }}
+          transition={{ duration: 0.4, delay: 0.1, ease: [0.4, 0, 0.2, 1] }}
           style={{
             display: "inline-flex",
             alignItems: "center",
@@ -138,7 +138,7 @@ export default function Hero() {
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.38, ease: [0.4, 0, 0.2, 1] }}
+          transition={{ duration: 0.5, delay: 0.15, ease: [0.4, 0, 0.2, 1] }}
           style={{
             fontFamily: "var(--font-heading)",
             fontSize: "clamp(3rem, 7.5vw, 5.8rem)",
@@ -170,7 +170,7 @@ export default function Hero() {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.55, ease: [0.4, 0, 0.2, 1] }}
+          transition={{ duration: 0.4, delay: 0.25, ease: [0.4, 0, 0.2, 1] }}
           style={{
             color: "rgba(235, 237, 235, 0.82)",
             fontSize: "clamp(1rem, 2.2vw, 1.2rem)",
@@ -188,7 +188,7 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.7, ease: [0.4, 0, 0.2, 1] }}
+          transition={{ duration: 0.4, delay: 0.3, ease: [0.4, 0, 0.2, 1] }}
           style={{
             display: "flex",
             gap: "1rem",
@@ -232,7 +232,7 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.0, duration: 0.5 }}
+          transition={{ delay: 0.4, duration: 0.4 }}
           style={{ marginTop: "2rem" }}
         >
           <a
@@ -258,7 +258,7 @@ export default function Hero() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.4 }}
+        transition={{ delay: 0.6 }}
         style={{
           position: "absolute",
           bottom: "2rem",
