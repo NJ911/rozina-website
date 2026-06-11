@@ -46,78 +46,15 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Top Info Bar */}
-      <motion.div
-        initial={{ y: -40 }}
-        animate={{ y: isScrolled ? -40 : 0 }}
-        transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+      {/* Main Navbar */}
+      <nav
         style={{
           position: "fixed",
           top: 0,
           left: 0,
           right: 0,
-          zIndex: 1001,
-          background: "var(--color-charcoal)",
-          color: "rgba(235, 237, 235, 0.75)",
-          fontSize: "0.78rem",
-          padding: "0.45rem 0",
-          willChange: "transform",
-        }}
-      >
-        <div
-          style={{
-            maxWidth: "1200px",
-            margin: "0 auto",
-            padding: "0 2rem",
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            flexWrap: "wrap",
-            gap: "0.5rem",
-          }}
-        >
-          <div style={{ display: "flex", alignItems: "center", gap: "0.4rem" }}>
-            <MapPin size={12} color="var(--color-primary-300)" />
-            <span>113-11020 No. 5 Road, Richmond, BC</span>
-          </div>
-          <div style={{ display: "flex", gap: "1.5rem", alignItems: "center" }}>
-            <a
-              href="tel:236-235-2284"
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "0.4rem",
-                color: "var(--color-primary-200)",
-                textDecoration: "none",
-              }}
-            >
-              <Phone size={12} /> 236-235-2284
-            </a>
-            <a
-              href="tel:778-668-4649"
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "0.4rem",
-                color: "var(--color-primary-200)",
-                textDecoration: "none",
-              }}
-            >
-              <Phone size={12} /> 778-668-4649
-            </a>
-          </div>
-        </div>
-      </motion.div>
-
-      {/* Main Navbar */}
-      <nav
-        style={{
-          position: "fixed",
-          top: isScrolled ? 0 : 34,
-          left: 0,
-          right: 0,
           zIndex: 1000,
-          transition: "top 0.35s cubic-bezier(0.4,0,0.2,1), background 0.35s cubic-bezier(0.4,0,0.2,1), box-shadow 0.35s cubic-bezier(0.4,0,0.2,1)",
+          transition: "background 0.35s cubic-bezier(0.4,0,0.2,1), box-shadow 0.35s cubic-bezier(0.4,0,0.2,1)",
           background: isScrolled
             ? "rgba(250, 251, 249, 0.94)"
             : "transparent",
