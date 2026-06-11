@@ -65,10 +65,11 @@ export default function Navbar() {
         }}
       >
         <div
+          className="top-bar-inner"
           style={{
             maxWidth: "1200px",
             margin: "0 auto",
-            padding: "0 2rem",
+            padding: "0 1.25rem",
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
