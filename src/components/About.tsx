@@ -170,18 +170,13 @@ export default function About() {
               </span>
             </h2>
             <p className="text-body" style={{ marginBottom: "0.9rem" }}>
-              Welcome to a world where beauty is an intimate expression of self. Rozina brings professional makeup artistry and technical mastery to Richmond, focusing on elevating your natural features for both high-profile events and everyday moments.
-            </p>
-            <p className="text-body" style={{ marginBottom: "0.9rem" }}>
-              At Rozina&apos;s Beauty Services, we believe looking and feeling your
-              best should be a calm, enjoyable experience — not a rushed one. Our
-              skilled professionals combine artistry with the latest techniques to
-              deliver results that are uniquely yours.
+              Founded by Rozina, a passionate beauty expert with over 15 years of industry experience, our salon was built on a simple philosophy: beauty treatments should be a calm, personalized experience, never rushed.
             </p>
             <p className="text-body" style={{ marginBottom: "2rem" }}>
               Located within Alpha-Omega Spa &amp; Hair Salon in Richmond, BC, our
               serene environment offers a true retreat. From bridal prep to everyday
-              beauty, we are committed to making every visit extraordinary.
+              beauty, Rozina and her skilled team combine artistry with the latest
+              techniques to deliver results that are uniquely yours.
             </p>
 
             {/* Stats */}

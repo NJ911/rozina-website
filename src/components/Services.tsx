@@ -189,13 +189,7 @@ export default function Services() {
         </motion.div>
 
         {/* Grid */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(270px, 1fr))",
-            gap: "1.4rem",
-          }}
-        >
+        <div className="services-grid">
           {services.map((service, index) => (
             <ServiceCard key={service.title} service={service} index={index} />
           ))}

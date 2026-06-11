@@ -312,14 +312,28 @@ body {
   }
 }
 
-/* ===================== Responsive Helpers ===================== */
+/* ===================== Responsive Layouts ===================== */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1024px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 750px;
+  }
+}
+
 @media (max-width: 768px) {
-  .top-info-bar { display: none !important; }
-  .main-navbar { top: 0 !important; }
   .desktop-nav { display: none !important; }
   .mobile-toggle { display: flex !important; }
   .about-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
   .about-grid > div:first-child { height: 360px !important; }
+  .services-grid { grid-template-columns: 1fr !important; max-width: 400px; }
   .contact-grid { grid-template-columns: 1fr !important; }
   .footer-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
 }
