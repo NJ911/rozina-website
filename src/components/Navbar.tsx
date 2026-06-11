@@ -19,6 +19,14 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
+    // Prevent the browser from trying to restore previous scroll position
+    if (typeof window !== "undefined") {
+      if ("scrollRestoration" in history) {
+        history.scrollRestoration = "manual";
+      }
+      window.scrollTo(0, 0);
+    }
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
 
